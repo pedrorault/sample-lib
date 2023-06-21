@@ -29,7 +29,8 @@
     "node": ">=12"
   },
   "scripts": {
-    "build": "microbundle --jsx React.createElement --css-modules '_[name]__[local]__[hash:base64:5]'",
+    "prepare": "husky install",
+    "build": "microbundle --jsx React.createElement",
     "dev": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -38,10 +39,14 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx prettier ./src --write"
+      "pre-commit": "lint-staged"
     }
   },
-
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
@@ -62,7 +67,8 @@
     "babel-loader": "^9.1.2",
     "clsx": "^1.2.1",
     "cssnano": "^6.0.1",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.2",
     "microbundle": "^0.15.1",
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",

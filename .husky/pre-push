@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+pnpm run build-storybook && git add storybook-static && git commit -n -m "Building storybook for static release" 
+exit 1
