@@ -32,7 +32,8 @@
     "prepare": "husky install",
     "build": "microbundle --jsx React.createElement",
     "dev": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "sb-deploy": "storybook build && git add storybook-static && git commit -n -m \"Building storybook for static release\""
   },
   "peerDependencies": {
     "react": ">=16"
